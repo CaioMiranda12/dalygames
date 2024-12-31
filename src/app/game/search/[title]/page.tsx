@@ -16,10 +16,12 @@ async function getData(title: string){
 }
 
 export default async function Search({
-    params: { title }
+    params
 }: { 
-    params: { title: string} 
-}){
+    params: { title: string } 
+}) {
+    const { title } = await params;
+
     const games: GameProps[] = await getData(title);
 
     return (
